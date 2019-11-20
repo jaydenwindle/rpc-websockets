@@ -43,7 +43,9 @@ function (_CommonClient) {
         _ref$reconnect_interv = _ref.reconnect_interval,
         reconnect_interval = _ref$reconnect_interv === void 0 ? 1000 : _ref$reconnect_interv,
         _ref$max_reconnects = _ref.max_reconnects,
-        max_reconnects = _ref$max_reconnects === void 0 ? 5 : _ref$max_reconnects;
+        max_reconnects = _ref$max_reconnects === void 0 ? 5 : _ref$max_reconnects,
+        _ref$protocol = _ref.protocol,
+        protocol = _ref$protocol === void 0 ? null : _ref$protocol;
 
     var generate_request_id = arguments.length > 2 ? arguments[2] : undefined;
     (0, _classCallCheck2["default"])(this, Client);
@@ -51,7 +53,8 @@ function (_CommonClient) {
       autoconnect: autoconnect,
       reconnect: reconnect,
       reconnect_interval: reconnect_interval,
-      max_reconnects: max_reconnects
+      max_reconnects: max_reconnects,
+      protocol: protocol
     }, generate_request_id));
   }
 

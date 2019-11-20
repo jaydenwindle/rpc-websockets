@@ -59,7 +59,9 @@ function (_EventEmitter) {
         _ref$reconnect_interv = _ref.reconnect_interval,
         reconnect_interval = _ref$reconnect_interv === void 0 ? 1000 : _ref$reconnect_interv,
         _ref$max_reconnects = _ref.max_reconnects,
-        max_reconnects = _ref$max_reconnects === void 0 ? 5 : _ref$max_reconnects;
+        max_reconnects = _ref$max_reconnects === void 0 ? 5 : _ref$max_reconnects,
+        _ref$protocol = _ref.protocol,
+        protocol = _ref$protocol === void 0 ? null : _ref$protocol;
 
     var generate_request_id = arguments.length > 3 ? arguments[3] : undefined;
     (0, _classCallCheck2["default"])(this, CommonClient);
@@ -74,6 +76,7 @@ function (_EventEmitter) {
     _this.reconnect = reconnect;
     _this.reconnect_interval = reconnect_interval;
     _this.max_reconnects = max_reconnects;
+    _this.protocol = protocol;
     _this.current_reconnects = 0;
 
     _this.generate_request_id = generate_request_id || function () {

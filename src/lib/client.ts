@@ -46,6 +46,7 @@ export default class CommonClient extends EventEmitter
     private reconnect: boolean;
     private reconnect_interval: number;
     private max_reconnects: number;
+    private protocol?: string;
     private current_reconnects: number;
     private generate_request_id: (method: string, params: object | Array<any>) => number;
     private socket: ICommonWebSocket;
@@ -67,8 +68,9 @@ export default class CommonClient extends EventEmitter
             autoconnect = true,
             reconnect = true,
             reconnect_interval = 1000,
-            max_reconnects = 5
-        } = {},
+            max_reconnects = 5,
+            protocol = null,
+        }: IWSClientAdditionalOptions = {},
         generate_request_id?: (method: string, params: object | Array<any>) => number
     )
     {
@@ -86,6 +88,7 @@ export default class CommonClient extends EventEmitter
         this.reconnect = reconnect
         this.reconnect_interval = reconnect_interval
         this.max_reconnects = max_reconnects
+        this.protocol = protocol
         this.current_reconnects = 0
         this.generate_request_id = generate_request_id || (() => ++this.rpc_id)
 

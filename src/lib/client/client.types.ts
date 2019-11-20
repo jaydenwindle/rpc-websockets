@@ -9,6 +9,7 @@ export interface IWSClientAdditionalOptions {
     reconnect?: boolean;
     reconnect_interval?: number;
     max_reconnects?: number;
+    protocol?: string;
 }
 
 export interface ICommonWebSocketFactory {

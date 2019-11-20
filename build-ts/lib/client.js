@@ -18,7 +18,7 @@ export default class CommonClient extends EventEmitter {
      * @param {Function} generate_request_id - custom generation request Id
      * @return {CommonClient}
      */
-    constructor(webSocketFactory, address = "ws://localhost:8080", { autoconnect = true, reconnect = true, reconnect_interval = 1000, max_reconnects = 5 } = {}, generate_request_id) {
+    constructor(webSocketFactory, address = "ws://localhost:8080", { autoconnect = true, reconnect = true, reconnect_interval = 1000, max_reconnects = 5, protocol = null, } = {}, generate_request_id) {
         super();
         this.webSocketFactory = webSocketFactory;
         this.queue = {};
@@ -30,6 +30,7 @@ export default class CommonClient extends EventEmitter {
         this.reconnect = reconnect;
         this.reconnect_interval = reconnect_interval;
         this.max_reconnects = max_reconnects;
+        this.protocol = protocol;
         this.current_reconnects = 0;
         this.generate_request_id = generate_request_id || (() => ++this.rpc_id);
         if (this.autoconnect)
